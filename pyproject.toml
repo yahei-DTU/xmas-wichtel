@@ -28,7 +28,7 @@ wichtel = "xmas_wichtel.cli:main"
 
 [dependency-groups]
 dev = [
-    "coverage==7.6.9",
+    "coverage==7.17.3",
     "invoke==2.2.0",
     "pre-commit==4.5.1",
     "pytest==9.0.2",
