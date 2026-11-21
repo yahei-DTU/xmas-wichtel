@@ -1,5 +1,6 @@
 import * as api from "./api.js";
 import { SUPABASE_URL } from "./config.js";
+import { christmasCountdown } from "./countdown.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -11,6 +12,7 @@ const loginError = $("login-error");
 const appView = $("app-view");
 const appError = $("app-error");
 const displayName = $("display-name");
+const countdown = $("countdown");
 const logoutButton = $("logout-button");
 const myWishes = $("my-wishes");
 const myWishesEmpty = $("my-wishes-empty");
@@ -221,6 +223,7 @@ async function showApp(userId) {
   stopEditing();
   appError.textContent = "";
   loginView.hidden = true;
+  countdown.textContent = christmasCountdown();
   try {
     const [name] = await Promise.all([api.getDisplayName(userId), refreshMyWishes(), refreshGiftee()]);
     displayName.textContent = name;

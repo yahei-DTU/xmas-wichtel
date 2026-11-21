@@ -83,6 +83,11 @@ h3 {
   margin: 0;
 }
 
+.topbar button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 label {
   display: block;
   margin-bottom: 0.75rem;
