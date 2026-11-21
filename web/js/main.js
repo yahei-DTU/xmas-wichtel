@@ -223,7 +223,11 @@ async function showApp(userId) {
   stopEditing();
   appError.textContent = "";
   loginView.hidden = true;
-  countdown.textContent = christmasCountdown();
+  countdown.replaceChildren(
+    ...christmasCountdown().map((part) =>
+      typeof part === "string" ? part : Object.assign(document.createElement("strong"), { textContent: part.bold }),
+    ),
+  );
   try {
     const [name] = await Promise.all([api.getDisplayName(userId), refreshMyWishes(), refreshGiftee()]);
     displayName.textContent = name;

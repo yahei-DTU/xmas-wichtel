@@ -16,17 +16,14 @@ export function daysUntilChristmasEve(today) {
 }
 
 /**
- * Build the countdown shown next to the greeting.
+ * Build the countdown shown next to the greeting, from Christmas Eve to Boxing Day a Christmas greeting instead.
  * @param {Date} [today]
- * @returns {string}
+ * @returns {Array<string | {bold: string}>} Text pieces in order; pieces given as `{bold}` are shown in bold.
  */
 export function christmasCountdown(today = new Date()) {
-  if (today.getMonth() === DECEMBER && [25, 26].includes(today.getDate())) {
-    return "Merry Christmas! 🎄";
+  if (today.getMonth() === DECEMBER && [24, 25, 26].includes(today.getDate())) {
+    return ["Merry Christmas! 🎄"];
   }
   const days = daysUntilChristmasEve(today);
-  if (days === 0) {
-    return "It's Christmas Eve! 🎁";
-  }
-  return `Only ${days} ${days === 1 ? "day" : "days"} left until Christmas Eve!`;
+  return ["Only ", { bold: String(days) }, ` ${days === 1 ? "day" : "days"} left until Christmas Eve!`];
 }
