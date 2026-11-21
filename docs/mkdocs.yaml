@@ -1,4 +1,4 @@
-site_name: xmas_wichtel
+site_name: Xmas Wichtel
 site_author: Yannick Heiser
 docs_dir: source
 
@@ -9,11 +9,16 @@ theme:
     - content.code.copy
     - content.code.annotate
 
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+
 plugins:
   - search
   - mkdocstrings:
       handlers:
         python:
+          paths: [../src]
           options:
             show_root_heading: true
             separate_signature: true
@@ -21,3 +26,6 @@ plugins:
 
 nav:
   - Home: index.md
+  - Setup: setup.md
+  - Admin guide: admin.md
+  - Code reference: reference.md

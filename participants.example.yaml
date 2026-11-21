@@ -1,0 +1,10 @@
+# Copy this file to participants.yaml (which is not committed) and list everyone taking part.
+# username: what they type to log in (lowercase letters, digits, _ or -)
+# display_name: what the others see
+participants:
+  - username: anna
+    display_name: Anna
+  - username: ben
+    display_name: Ben
+  - username: oma-inge
+    display_name: Oma Inge

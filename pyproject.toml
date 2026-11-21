@@ -5,12 +5,12 @@ build-backend = "uv_build"
 [project]
 name = "xmas_wichtel"
 version = "0.0.1"
-description = "Matching participants with their secret santa."
+description = "Family wishlists and a secret santa draw, hosted on GitHub Pages with Supabase."
 authors = [
   { name = "Yannick Heiser", email = "yheiser@gmx.de" },
 ]
 
-keywords = ["comma-separated", "list", "of", "keywords"]
+keywords = ["secret-santa", "wichtel", "wishlist", "supabase"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Programming Language :: Python :: 3",
@@ -18,10 +18,13 @@ classifiers = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "matplotlib>=3.10.8",
-    "numpy>=2.4.1",
-    "pandas>=2.3.3",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.4",
+    "supabase>=2.34.1",
 ]
+
+[project.scripts]
+wichtel = "xmas_wichtel.cli:main"
 
 [dependency-groups]
 dev = [
@@ -33,24 +36,9 @@ dev = [
     "mkdocs==1.6.1",
     "mkdocs-material==9.7.1",
     "mkdocstrings-python==2.0.2",
-    "fastapi>=0.135.3",
-    "hydra-core>=1.3.2",
-    "uvicorn[standard]>=0.44.0",
+    "pgserver>=0.1.4",
+    "psycopg[binary]>=3.3.9",
 ]
-
-
-[tool.uv.sources]
-torch = [
-    { index = "pytorch-cpu" },
-]
-torchvision = [
-    { index = "pytorch-cpu" },
-]
-
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
 
 [tool.ruff]
 line-length = 120

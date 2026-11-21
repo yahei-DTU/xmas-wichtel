@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Xmas Wichtel</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>🎄 Xmas Wichtel</h1>
+
+      <p id="loading">Loading…</p>
+      <noscript><p class="error">This page needs JavaScript.</p></noscript>
+
+      <section id="setup-hint" class="card" hidden>
+        <h2>Almost there</h2>
+        <p>Fill in your Supabase project URL and publishable key in <code>web/js/config.js</code>.</p>
+      </section>
+
+      <section id="login-view" class="card" hidden>
+        <h2>Log in</h2>
+        <p class="muted">Use the username and password you received.</p>
+        <form id="login-form">
+          <label>Username
+            <input name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+          </label>
+          <label>Password
+            <input name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Log in</button>
+          <p id="login-error" class="error" role="alert"></p>
+        </form>
+      </section>
+
+      <div id="app-view" hidden>
+        <div class="topbar">
+          <p>Hi <strong id="display-name"></strong>!</p>
+          <button id="logout-button" type="button" class="secondary">Log out</button>
+        </div>
+        <p id="app-error" class="error" role="alert"></p>
+
+        <section class="card">
+          <h2>Your Wichtel</h2>
+          <p id="giftee-pending" class="muted">The draw hasn't happened yet. Check back later to see who you're giving a gift to!</p>
+          <div id="giftee" hidden>
+            <p>You're giving a gift to <strong class="giftee-name"></strong>. Here's their wishlist:</p>
+            <ul id="giftee-wishes" class="wishes"></ul>
+            <p id="giftee-wishes-empty" class="muted" hidden><span class="giftee-name"></span> hasn't added any wishes yet.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>My wishlist</h2>
+          <p class="muted">After the draw, the person giving you a gift sees this list. You can keep changing it.</p>
+          <ul id="my-wishes" class="wishes"></ul>
+          <p id="my-wishes-empty" class="muted">Your wishlist is still empty.</p>
+
+          <form id="wish-form">
+            <h3 id="wish-form-title">Add a wish</h3>
+            <label>What do you wish for?
+              <input name="title" maxlength="200" required>
+            </label>
+            <label>Link <span class="muted">(optional)</span>
+              <input name="link" inputmode="url" maxlength="2000" placeholder="https://…" autocapitalize="none" spellcheck="false">
+            </label>
+            <label>Note <span class="muted">(optional)</span>
+              <textarea name="note" maxlength="1000" rows="2" placeholder="Size, colour, …"></textarea>
+            </label>
+            <div class="form-actions">
+              <button id="wish-submit" type="submit">Add</button>
+              <button id="wish-cancel" type="button" class="secondary" hidden>Cancel</button>
+            </div>
+            <p id="wish-error" class="error" role="alert"></p>
+          </form>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -15,6 +15,13 @@
     `tasks.py` file.
 * The project uses `pre-commit` for managing pre-commit hooks. To run all hooks on all files, use
     `uv run pre-commit run --all-files`. For more information, refer to the `.pre-commit-config.yaml` file.
+* The admin CLI is `uv run wichtel <command>` (`add-users`, `status`, `match`, `reset-password`), also available as
+    invoke tasks. It talks to the real Supabase project configured in `.env`; never run it against production
+    as part of testing.
+* To serve the website locally, use `uv run invoke serve-web`. The website in `web/` is plain HTML/JS without a build
+    step and is deployed to GitHub Pages by `.github/workflows/deploy_pages.yaml`.
+* Database schema and row level security live in `supabase/migrations/`. `tests/test_policies.py` applies them to an
+    embedded Postgres (`pgserver`); update those tests whenever the policies change.
 
 # Code style
 

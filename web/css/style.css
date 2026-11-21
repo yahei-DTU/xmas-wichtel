@@ -1,0 +1,191 @@
+:root {
+  color-scheme: light;
+  --red: #b3261e;
+  --red-dark: #8c1d17;
+  --green: #1f6f43;
+  --background: #f7f3ec;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #666;
+  --border: #e3ddd3;
+  --radius: 12px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  color: var(--green);
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--red);
+  font-size: 1.25rem;
+}
+
+h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.card {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  margin: 0.5rem 0 0;
+  color: var(--red);
+}
+
+.error:empty {
+  display: none;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.topbar p {
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: normal;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+
+button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--red-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--red);
+}
+
+button.secondary:hover {
+  background: #fbeceb;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wishes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wish {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.wish:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.wish-body {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.wish-title {
+  font-weight: 600;
+}
+
+a.wish-title {
+  color: var(--green);
+}
+
+.wish-note {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  white-space: pre-line;
+}
+
+.wish-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.4rem;
+}
+
+.wish-actions button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.875rem;
+}

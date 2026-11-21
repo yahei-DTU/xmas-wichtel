@@ -1,5 +1,11 @@
 docs/site/
 
+# Wichtel: real participant list and secrets (see participants.example.yaml and .env.example)
+participants.yaml
+.env
+.env.*
+!.env.example
+
 # test cache
 manual_test/
 
